@@ -34,8 +34,11 @@
               <label for="apalancamiento"></label>
             </div>
             <div class="input-field col s12">
-              <input id="porcentaje" placeholder="Porcentaje de monedas" type="number" class="validate">
-              <label for="porcentaje"></label>
+              
+                <input id="porcentaje" type="range" min="0" max="100" step="1">
+<div id="porcentaje-valor" >40</div> <span>Porcentaje de Monedas</span>
+
+
             </div>
             <div class="col s12">
               <button class="waves-effect waves-light btn " style="width: 100% !important;" type="button" onclick="calcular()">Calcular </button>

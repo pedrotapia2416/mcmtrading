@@ -144,14 +144,14 @@ const stockOutDiv = document.createElement("div");
 // Asignar los valores calculados al contenido del div
 stockOutDiv.innerHTML = `
 <div class="container ">
-<h2>Stock Out</h2>
+<h2>SL</h2>
 <div class="row resultado-stockout">
 
 
-  <p class="stockout">Precio Stock Out: <br> $${precioStockOut.toFixed(5)}</p>
-    <p class="stockout">Monedas Stock Out:<br> ${monedasStockOut.toFixed(5)}</p>
-  <p class="stockout">USDT Stock Out:<br> $${usdtStockOut.toFixed(5)}</p>
-  <p class="stockout">Ganancia USDT:<br> $${gananciaUSDT.toFixed(5)}</p>
+  <p class="stockout">Precio: <br> $${precioStockOut.toFixed(5)}</p>
+    <p class="stockout">Monedas:<br> ${monedasStockOut.toFixed(5)}</p>
+  <p class="stockout">USDT:<br> $${usdtStockOut.toFixed(5)}</p>
+  <p class="stockout">Ganancia:<br> $${gananciaUSDT.toFixed(5)}</p>
 
 </div>
 </div>
@@ -162,3 +162,10 @@ const body = document.querySelector("body");
 body.appendChild(stockOutDiv);
 
 }
+
+const porcentajeInput = document.getElementById("porcentaje");
+const porcentajeValor = document.getElementById("porcentaje-valor");
+
+porcentajeInput.addEventListener("input", () => {
+  porcentajeValor.innerText = porcentajeInput.value;
+});
