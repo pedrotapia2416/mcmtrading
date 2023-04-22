@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de USDT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <nav>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="basicashort.html">Short Básica</a></li>
+          <li><a href="basicalong.html">Long Básica</a></li>
+        </ul>
+      </nav>
+      
+    <div class="container">
+      <div class="row calculadora">
+        <form class="col s12 m6">
+          <h4>Calculadora SHORT</h4>
+          <div class="calculadora-datos">
+            <div class="input-field col s12">
+              <input id="precio" placeholder="Precio de Entrada" type="number" class="validate">
+              <label for="precio"></label>
+            </div>
+            <div class="input-field col s12">
+              <input id="cantidad" placeholder="Cantidad de monedas" type="number" class="validate">
+              <label for="cantidad"></label>
+            </div>
+            <div class="input-field col s12">
+              <input id="apalancamiento" placeholder="Apalancamiento" type="number" class="validate">
+              <label for="apalancamiento"></label>
+            </div>
+            <div class="input-field col s12">
+              <input id="porcentaje" placeholder="Porcentaje de monedas" type="number" class="validate">
+              <label for="porcentaje"></label>
+            </div>
+            <div class="col s12">
+              <button class="waves-effect waves-light btn " style="width: 100% !important;" type="button" onclick="calcular()">Calcular </button>
+            </div>
+          </div>
+        </form>
+        <div class="col s12 m6">
+          <table>
+            <thead>
+              <tr>
+                <th>Resultado</th>
+              </tr>
+            </thead>
+            <tbody id="resultado-principal">
+            </tbody>
+            
+          <table id="resultado-interaccion-1" class="striped">
+            <thead>
+              <tr>
+                <th>Precio</th>
+                <th>Moneda</th>
+                <th>USDT</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          </table>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
