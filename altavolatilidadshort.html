@@ -48,11 +48,7 @@
       <div class="row calculadora">
         <form class="col s12 m6">
           <h4>Calculadora Trading</h4>
-          <p style="color:white !important">
-            <span class="badge1"  >Tipo: Short > FIJO  </span>  ( <span class="" style="color:white" id="resultadoPorcentajeUnico"> ...  </span> % ) 
-          </p>
-          
-
+          <span class="badge1">Tipo: Short > Alta Volatilidad </span>
           <div class="calculadora-datos">
             <div class="input-field col s12">
               <input id="capitalTotal" placeholder="Capital Total" type="number" class="validate" step="0.0001" pattern="[0-9]+([,\.][0-9]+)? ">
@@ -63,11 +59,12 @@
               <label for="precio"></label>
             </div>
             <div class="input-field col s12">
-              <input id="cantidad" placeholder="Cantidad de monedas" type="number" class="validate" step="0.0001" pattern="[0-9]+([,\.][0-9]+)?">
+                <input id="cantidad" placeholder="Cantidad de monedas" type="number" class="validate" step="0.0001" pattern="[0-9]+([,\.][0-9]+)?  "/>
+
               <label for="cantidad"></label>
             </div>
             <div class="input-field col s12">
-              <input id="apalancamiento" placeholder="Apalancamiento" type="number" class="validate" step="0.0001" pattern="[0-9]+([,\.][0-9]+)?">
+              <input id="apalancamiento" placeholder="Apalancamiento" type="number" class="validate" step="0.0001" pattern="[0-9]+([,\.][0-9]+)? ">
               <label for="apalancamiento"></label>
             </div>
             <div class="input-field col s12">
@@ -121,7 +118,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <script src="app/app.js"></script>
-    <script src="app/fijoshort.js"></script>
+    <script src="app/altavolatilidadshort.js"></script>
 
   </body>
 </html>

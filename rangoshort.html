@@ -49,7 +49,7 @@
         <form class="col s12 m6">
           <h4>Calculadora Trading</h4>
           <p style="color:white !important">
-            <span class="badge1"  >Tipo: Short > FIJO  </span>  ( <span class="" style="color:white" id="resultadoPorcentajeUnico"> ...  </span> % ) 
+            <span class="badge1"  >Tipo: Short > RANGO  </span>  ( <span class="" style="color:white" id="resultadoPorcentajeUnico"> ...  </span> % ) 
           </p>
           
 
@@ -59,21 +59,33 @@
               <label for="capitalTotal"></label>
             </div>
             <div class="input-field col s12">
-              <input id="precio" placeholder="Precio de Entrada" type="number" class="validate" step="0.0001" pattern="[0-9]+([,\.][0-9]+)? ">
+              <input id="precio" placeholder="Precio de Entrada" type="number" class="validate" step="0.00001" pattern="[0-9]+([,\.][0-9]+)? ">
               <label for="precio"></label>
             </div>
             <div class="input-field col s12">
-              <input id="cantidad" placeholder="Cantidad de monedas" type="number" class="validate" step="0.0001" pattern="[0-9]+([,\.][0-9]+)?">
+              <input id="cantidad" placeholder="Cantidad de monedas" type="number" class="validate" step="0.00001" pattern="[0-9]+([,\.][0-9]+)?">
               <label for="cantidad"></label>
             </div>
             <div class="input-field col s12">
-              <input id="apalancamiento" placeholder="Apalancamiento" type="number" class="validate" step="0.0001" pattern="[0-9]+([,\.][0-9]+)?">
+              <input id="apalancamiento" placeholder="Apalancamiento" type="number" class="validate" step="0.00001" pattern="[0-9]+([,\.][0-9]+)?">
               <label for="apalancamiento"></label>
             </div>
             <div class="input-field col s12">
               <p style="color:#ffffff!important">Porcentaje de monedas:</p>
                 <input id="porcentaje" type="range" min="0" max="100" step="1" value="40">
                 <div id="porcentaje-valor" >40 </div> 
+            </div>
+
+            <div >
+                <div class="input-field col s6">
+                    <input id="precioSuperior" placeholder="Precio Superior" type="number" class="validate" step="0.00001" pattern="[0-9]+([,\.][0-9]+)?">
+                    <label for="precioSuperior"></label>
+                  </div>
+                  <div class="input-field col s6">
+                    <input id="precioInferior" placeholder="Precio Inferior" type="number" class="validate" step="0.00001" pattern="[0-9]+([,\.][0-9]+)?">
+                    <label for="precioInferior"></label>
+                  </div>
+
             </div>
             <div class="col s12">
               <button class="waves-effect waves-light btn " id="boton-calcular" style="width: 100% !important;" type="button" onclick="calcular()">Calcular </button>
@@ -114,14 +126,40 @@
         </div>
       </div>
 
-     
+      <div id="resultadoRango">
+        <table>
+          <thead>
+            <tr>
+              <th>Precio Promedio Rango</th>
+              <th>Base Distancia Short</th>
+              <th>Base Distancia Long</th>
+              <th>Distancia Short</th>
+              <th>Distancia Long</th>
+              <th>Porcentaje Short</th>
+              <th>Porcentaje Long</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="baseDistanciaShort"></td>
+              <td id="baseDistanciaLong"></td>
+              <td id="precioPromedioRango"></td>
+              <td id="distanciaShort"></td>
+              <td id="distanciaLong"></td>
+              <td id="porcentajeShort"></td>
+              <td id="porcentajeLong"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
 
       
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <script src="app/app.js"></script>
-    <script src="app/fijoshort.js"></script>
+    <script src="app/rangoshort.js"></script>
 
   </body>
 </html>
