@@ -13,18 +13,34 @@
   </head>
   <body>
     <nav>
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="basicashort.html">Short Básica</a></li>
-          <li><a href="basicalong.html">Long Básica</a></li>
-          <li><a href="fijoshort.html">Short Fijo</a></li>
-          <li><a href="fijolong.html">Short Fijo</a></li>
-
-
-        </ul>
-
-
-      </nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+    
+        <li class="dropdown">
+          <a href="#!" class="dropdown-trigger" data-target="dropdown-personalizada">Personalizada</a>
+          <ul id="dropdown-personalizada" class="dropdown-content">
+            <li><a href="basicalong.html"> Personalizada <b>Long</b> </a></li>
+            <li><a href="basicashort.html">Personalizada <b> Short</b> </a></li>
+          </ul>
+        </li>
+    
+        <li class="dropdown">
+          <a href="#!" class="dropdown-trigger" data-target="dropdown-fijo">Fijo</a>
+          <ul id="dropdown-fijo" class="dropdown-content">
+            <li><a href="fijolong.html">Fijo <b> Long</b></a></li>
+            <li><a href="fijoshort.html">Fijo <b> Short</b></a></li>
+          </ul>
+        </li>
+    
+        <li class="dropdown">
+          <a href="#!" class="dropdown-trigger" data-target="dropdown-volatilidad">Alta Volatilidad</a>
+          <ul id="dropdown-volatilidad" class="dropdown-content">
+            <li><a href="altavolatilidadlong.html"> Alta Volatilidad Long</a></li>
+            <li><a href="altavolatilidadshort.html"> Baja Volatilidad Short</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
       
     <div class="container">
       <div class="row calculadora">
@@ -96,6 +112,7 @@
 
       
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <script src="app/app.js"></script>
     <script src="app/basicashort.js"></script>
