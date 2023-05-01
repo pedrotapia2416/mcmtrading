@@ -4,8 +4,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de USDT</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
 
     <link rel="stylesheet" href="style.css">
+
+
+
   </head>
   <body>
     <nav>
@@ -13,16 +17,27 @@
           <li><a href="index.html">Inicio</a></li>
           <li><a href="basicashort.html">Short Básica</a></li>
           <li><a href="basicalong.html">Long Básica</a></li>
+          <li><a href="fijoshort.html">Short Fijo</a></li>
+          <li><a href="fijolong.html">Short Fijo</a></li>
+
+
         </ul>
+
+
       </nav>
       
     <div class="container">
       <div class="row calculadora">
         <form class="col s12 m6">
-          <h4>Calculadora SHORT</h4>
+          <h4>Calculadora Trading</h4>
+          <span class="badge1">Tipo: Short > Personalizada </span>
           <div class="calculadora-datos">
             <div class="input-field col s12">
-              <input id="precio" placeholder="Precio de Entrada" type="number" class="validate">
+              <input id="capitalTotal" placeholder="Capital Total" type="number" class="validate" >
+              <label for="capitalTotal"></label>
+            </div>
+            <div class="input-field col s12">
+              <input id="precio" placeholder="Precio de Entrada" type="number" class="validate" >
               <label for="precio"></label>
             </div>
             <div class="input-field col s12">
@@ -34,41 +49,56 @@
               <label for="apalancamiento"></label>
             </div>
             <div class="input-field col s12">
-                <input id="porcentaje" type="range" min="0" max="100" step="1">
-                <div id="porcentaje-valor" >40</div> <span>Porcentaje de Monedas</span>
+              <p style="color:#ffffff!important">Porcentaje de monedas:</p>
+                <input id="porcentaje" type="range" min="0" max="100" step="1" value="40">
+                <div id="porcentaje-valor" >40 </div> 
             </div>
             <div class="col s12">
-              <button class="waves-effect waves-light btn " style="width: 100% !important;" type="button" onclick="calcular()">Calcular </button>
+              <button class="waves-effect waves-light btn " id="boton-calcular" style="width: 100% !important;" type="button" onclick="calcular()">Calcular </button>
             </div>
           </div>
         </form>
-        <div class="col s12 m6">
+        <div class="col s12 m6 margen" >
           <table>
             <thead>
               <tr>
-                <th>Resultado</th>
+                <th>Margen</th>
               </tr>
             </thead>
             <tbody id="resultado-principal">
             </tbody>
             
-          <table id="resultado-interaccion-1" class="striped">
+          <table >
             <thead>
               <tr>
+                <th>N° de <br> Interacción</th>
                 <th>Precio</th>
                 <th>Moneda</th>
                 <th>USDT</th>
+                <th>Nuevo Precio <br> de Entrada</th>
+
               </tr>
             </thead>
-            <tbody></tbody>
+            <tbody id="resultado-interaccion-1" class="striped"></tbody>
           </table>
           </table>
+          <div id="resultado">
+
+            
+
+
+           
+          </div>
         </div>
       </div>
+
+     
 
       
     </div>
 
-    <script src="app.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/basicashort.js"></script>
+
   </body>
 </html>
