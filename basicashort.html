@@ -1,51 +1,62 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de USDT</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCM Trading</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://kit.fontawesome.com/e25f6e1d42.js" crossorigin="anonymous"></script>
+  
+</head>
+<body>  
 
-    <link rel="stylesheet" href="style.css">
+  <nav>
+    <ul>
+     <li class="logo">MCM  Trading</li>
+
+      <li><a href="index.html">Inicio <i class="fas fa-home"></i> </a></li>
+      <li class="dropdown">
+            
+        <a href="#!" class="dropdown-trigger" data-target="dropdown-fijo">Básica <span class="badgeLong "  >free  </span>  </a>
+    <ul id="dropdown-fijo" class="dropdown-content">
+      <li><a href="fijolong.html">Básica <b> Long</b></a></li>
+      <li><a href="fijoshort.html">Básica <b> Short</b></a></li>
+    </ul>
+  </li>
+  
+      <li class="dropdown">
+        <a href="#!" class="dropdown-trigger" data-target="dropdown-personalizada">Personalizada <span class="badgePro "  >Pro  </span> </a>
+        <ul id="dropdown-personalizada" class="dropdown-content">
+          <li><a href="basicalong.html"> Personalizada <b>Long</b> </a></li>
+          <li><a href="basicashort.html">Personalizada <b> Short</b> </a></li>
+        </ul>
+      </li>
+  
+     
+  
+      <li class="dropdown">
+        <a href="#!" class="dropdown-trigger" data-target="dropdown-volatilidad">Alta Volatilidad <span class="badgePro "  >Pro  </span> </a>
+        <ul id="dropdown-volatilidad" class="dropdown-content">
+          <li><a href="altavolatilidadlong.html"> Alta Volatilidad Long</a></li>
+          <li><a href="altavolatilidadshort.html"> Baja Volatilidad Short</a></li>
+        </ul>
+      </li>
+      <li><a href="rangoshort.html">Rango <span class="badgePro "  >Pro  </span> </a></li>
+
+      <li><a href="posicion.html">Posición <span class="badgePro "  >Pro  </span> </a></li>
 
 
+      <li><a href="index.html">Ayuda <i class="fas fa-question-circle"></i> </a></li>
+      <li><a href="index.html">Cuenta <i class="fas fa-user-circle"></i> </a></li>
 
-  </head>
-  <body>
-    <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-    
-        <li class="dropdown">
-          <a href="#!" class="dropdown-trigger" data-target="dropdown-personalizada">Personalizada</a>
-          <ul id="dropdown-personalizada" class="dropdown-content">
-            <li><a href="basicalong.html"> Personalizada <b>Long</b> </a></li>
-            <li><a href="basicashort.html">Personalizada <b> Short</b> </a></li>
-          </ul>
-        </li>
-    
-        <li class="dropdown">
-          <a href="#!" class="dropdown-trigger" data-target="dropdown-fijo">Fijo</a>
-          <ul id="dropdown-fijo" class="dropdown-content">
-            <li><a href="fijolong.html">Fijo <b> Long</b></a></li>
-            <li><a href="fijoshort.html">Fijo <b> Short</b></a></li>
-          </ul>
-        </li>
-    
-        <li class="dropdown">
-          <a href="#!" class="dropdown-trigger" data-target="dropdown-volatilidad">Alta Volatilidad</a>
-          <ul id="dropdown-volatilidad" class="dropdown-content">
-            <li><a href="altavolatilidadlong.html"> Alta Volatilidad Long</a></li>
-            <li><a href="altavolatilidadshort.html"> Baja Volatilidad Short</a></li>
-          </ul>
-        </li>
-        <li><a href="rangoshort.html">Rango Short</a></li>
 
-      </ul>
-    </nav>
+    </ul>
+  </nav>
       
     <div class="container">
-      <div class="row calculadora">
+      <div class="row calculadora short">
         <form class="col s12 m6">
           <h4>Calculadora Trading</h4>
           <span class="badge1">Tipo: Short > Personalizada </span>

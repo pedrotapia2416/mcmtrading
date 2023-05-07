@@ -1,8 +1,4 @@
 
-    //Constante porcentaje único
-    const porcentajeUnico = 1.0014;
-    const mostrarPorcentajeUnico = -(1- porcentajeUnico)*100;
-    document.getElementById("resultadoPorcentajeUnico").innerHTML = mostrarPorcentajeUnico.toLocaleString('es-ES', {minimumFractionDigits: 4, maximumFractionDigits: 4});
 
 const numeroInput = document.getElementById('precio');
 numeroInput.addEventListener('blur', () => {
@@ -50,8 +46,12 @@ function calcular() {
     const cantidad = parseFloat(document.getElementById('cantidad').value);
     const apalancamiento = parseFloat(document.getElementById('apalancamiento').value);
     const porcentaje = parseFloat(document.getElementById('porcentaje').value);
+    const porcentajeUnico = parseFloat(document.getElementById('porcentajeUnico').value);
 
-  
+    //Constante porcentaje único
+    
+    const mostrarPorcentajeUnico = porcentajeUnico * 100;
+    document.getElementById("resultadoPorcentajeUnico").innerHTML = mostrarPorcentajeUnico.toLocaleString('es-ES', {minimumFractionDigits: 4, maximumFractionDigits: 4});
     // Calculamos la cantidad de monedas con el porcentaje
     const cantidadConPorcentaje = cantidad + (porcentaje / 100) * cantidad;
   

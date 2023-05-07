@@ -1,80 +1,77 @@
 
-    
 
-const numeroInput = document.getElementById('precio');
-numeroInput.addEventListener('blur', () => {
-  const numero = parseFloat(numeroInput.value);
-  if (!isNaN(numero)) {
-    numeroInput.value = numero.toFixed(4);
-  }
-  
-});
-
-const cantidadInput = document.getElementById('cantidad');
-cantidadInput.addEventListener('blur', () => {
-  const numero = parseFloat(cantidadInput.value);
-  if (!isNaN(numero)) {
-    cantidadInput.value = numero.toFixed(4);
-  }
-});
-
-const capitalTotalInput = document.getElementById('capitalTotal');
-capitalTotalInput.addEventListener('blur', () => {
-  const numero = parseFloat(capitalTotalInput.value);
-  if (!isNaN(numero)) {
-    capitalTotalInput.value = numero.toFixed(4);
-  }
-});
+function calcularLong() {
 
 
-function calcular() {
 
-    const tabla1 = document.getElementById("resultado-principal");
+    const tabla1 = document.getElementById("resultado-principal-long");
   tabla1.innerHTML = "";
 
   // Borrar contenido de la tabla 2
-  const tabla2 = document.getElementById("resultado-interaccion-1");
+  const tabla2 = document.getElementById("resultado-interaccion-1-long");
   tabla2.innerHTML = "";
 
-  const tabla3 = document.getElementById("resultado");
+  const tabla3 = document.getElementById("resultado-long");
   tabla3.innerHTML = "";
+
+
+      //Obtenemos los valores del Rango
+      const precioSuperior = parseFloat(document.getElementById('precioSuperior').value);
+      const precioInferior = parseFloat(document.getElementById('precioInferior').value);
+  
+      const variacionLong = parseFloat(document.getElementById('variacionLong').value);
+  
+  
+   // Calculamos los valores del rango
+
+   const precioPromedioRango = ( precioSuperior + precioInferior )/2 ;
+   //CALCULOS GENERALES LONG
+  const precio = precioPromedioRango - (precioPromedioRango * variacionLong);
+ 
+   const baseDistanciaShort = (precioSuperior - precio) / precio;
+   const baseDistanciaLong = (precio - precioInferior) / precioInferior;
+ 
+   const distanciaShort = baseDistanciaShort ;
+   const distanciaLong = baseDistanciaLong ;
+ 
+   const porcentajeShort = distanciaShort/7;
+   const porcentajeLong = distanciaLong/7;
+ 
+   //Constante porcentaje único
+   const porcentajeUnico = porcentajeShort;
+   const porcentajeUnicoLong = porcentajeLong;
 
 
 
     // Obtenemos los valores de los campos de entrada
     const capitalTotal = parseFloat(document.getElementById('capitalTotal').value);
-    const precio = parseFloat(document.getElementById('precio').value);
     const cantidad = parseFloat(document.getElementById('cantidad').value);
     const apalancamiento = parseFloat(document.getElementById('apalancamiento').value);
     const porcentaje = parseFloat(document.getElementById('porcentaje').value);
-    const porcentajeUnico = parseFloat(document.getElementById('porcentajeUnico').value);
-
-    //Constante porcentaje único
-    
-    const mostrarPorcentajeUnico = porcentajeUnico * 100;
-    document.getElementById("resultadoPorcentajeUnico").innerHTML = mostrarPorcentajeUnico.toLocaleString('es-ES', {minimumFractionDigits: 4, maximumFractionDigits: 4});
 
 
+ 
 
+  
     // Calculamos la cantidad de monedas con el porcentaje
     const cantidadConPorcentaje = cantidad + (porcentaje / 100) * cantidad;
   
     // Calculamos el resultado del precio de entrada
-    const resultadoPrecio = precio * porcentajeUnico;
+    const resultadoPrecio = precio * porcentajeUnicoLong;
   
     // Realizamos el cálculo principal
     const resultado = precio * cantidad / apalancamiento;
   
     // Realizamos la Interacción 1
     const nrointeraccion1 = 1;
-    const precioInteraccion1 = precio - (precio * porcentajeUnico) ;
+    const precioInteraccion1 = precio - (precio * porcentajeUnicoLong);
     const monedaInteraccion1 = cantidad + (cantidad * porcentaje / 100);
     const resultadoInteraccion1 = (precioInteraccion1 * monedaInteraccion1)/apalancamiento;
     const precioPromedio1 = (precioInteraccion1 + precio )/2;
   
     // Realizamos la Interacción 2
     const nrointeraccion2 = 2;
-    const precioInteraccion2 = precioInteraccion1- (precioInteraccion1 * porcentajeUnico);
+    const precioInteraccion2 = precioInteraccion1- (precioInteraccion1 * porcentajeUnicoLong);
     const monedaInteraccion2 = monedaInteraccion1 + (monedaInteraccion1 * porcentaje / 100);
     const resultadoInteraccion2 = precioInteraccion2 * monedaInteraccion2/apalancamiento;
     const precioPromedio2 = (precioInteraccion2 + precioInteraccion1 + precio)/3;
@@ -82,7 +79,7 @@ function calcular() {
   
      // Realizamos la Interacción 3
      const nrointeraccion3 = 3;
-     const precioInteraccion3 = precioInteraccion2- (precioInteraccion2 * porcentajeUnico);
+     const precioInteraccion3 = precioInteraccion2 - (precioInteraccion2 * porcentajeUnicoLong);
      const monedaInteraccion3 = monedaInteraccion2 + (monedaInteraccion2 * porcentaje / 100);
      const resultadoInteraccion3 = precioInteraccion3 * monedaInteraccion3/apalancamiento;
     const precioPromedio3 = (precioInteraccion2 + precioInteraccion1 + precioInteraccion3)/3;
@@ -91,7 +88,7 @@ function calcular() {
      
      // Realizamos la Interacción 4
      const nrointeraccion4 = 4;
-     const precioInteraccion4 = precioInteraccion3- (precioInteraccion3 * porcentajeUnico);
+     const precioInteraccion4 = precioInteraccion3 - (precioInteraccion3 * porcentajeUnicoLong);
      const monedaInteraccion4 = monedaInteraccion3 + (monedaInteraccion3 * porcentaje / 100);
      const resultadoInteraccion4 = precioInteraccion4 * monedaInteraccion4/apalancamiento;
     const precioPromedio4 = (precioInteraccion2 + precioInteraccion4 + precioInteraccion3)/3;
@@ -99,7 +96,7 @@ function calcular() {
   
      // Realizamos la Interacción 5
      const nrointeraccion5 = 5;
-     const precioInteraccion5 = precioInteraccion4- (precioInteraccion4 * porcentajeUnico);
+     const precioInteraccion5 = precioInteraccion4 - (precioInteraccion4 * porcentajeUnicoLong);
      const monedaInteraccion5 = monedaInteraccion4 + (monedaInteraccion4 * porcentaje / 100);
      const resultadoInteraccion5 = precioInteraccion5 * monedaInteraccion5/apalancamiento;
     const precioPromedio5 = (precioInteraccion5 + precioInteraccion4 + precioInteraccion3)/3;
@@ -107,14 +104,14 @@ function calcular() {
   
      // Realizamos la Interacción 6
      const nrointeraccion6 = 6;
-     const precioInteraccion6 = precioInteraccion5- (precioInteraccion5 * porcentajeUnico);
+     const precioInteraccion6 = precioInteraccion5 - (precioInteraccion5 * porcentajeUnicoLong);
      const monedaInteraccion6 = monedaInteraccion5 + (monedaInteraccion5 * porcentaje / 100);
      const resultadoInteraccion6 = precioInteraccion6 * monedaInteraccion6/apalancamiento;
      const precioPromedio6 = (precioInteraccion5 + precioInteraccion4 + precioInteraccion6)/3;
   
      // Realizamos la Interacción 7
      const nrointeraccion7 = 7;
-     const precioInteraccion7 = precioInteraccion6- (precioInteraccion6 * porcentajeUnico);
+     const precioInteraccion7 = precioInteraccion6 - (precioInteraccion6 * porcentajeUnicoLong);
      const monedaInteraccion7 = monedaInteraccion6 + (monedaInteraccion6 * porcentaje / 100);
      const resultadoInteraccion7 = precioInteraccion7 * monedaInteraccion7/apalancamiento;
      const precioPromedio7 = (precioInteraccion5 + precioInteraccion7 + precioInteraccion6)/3;
@@ -122,17 +119,19 @@ function calcular() {
   
      // Calcular los valores solicitados
      
-  const precioStopLoss = precioInteraccion7 / 1.01;
+  const precioStopLoss = precioInteraccion7 - 1.01;
   const monedasStopLoss = monedaInteraccion1 + monedaInteraccion2 + monedaInteraccion3 + monedaInteraccion4 + monedaInteraccion5 + monedaInteraccion6 + monedaInteraccion7 + cantidad;
   const usdtStopLoss = precioStopLoss * monedasStopLoss;
   const gananciaUSDT = usdtStopLoss / apalancamiento;
   const totalRealInvertido = resultadoInteraccion1 + resultadoInteraccion2 + resultadoInteraccion3 + resultadoInteraccion4 +resultadoInteraccion5 + resultadoInteraccion6 + resultadoInteraccion7;
 
-  const riesgoTotal = totalRealInvertido / capitalTotal;
+  const riesgoTotal = totalRealInvertido / capitalTotal *100;
+
+
   
   
     // Agregamos una fila a la tabla con los resultados de la Interacción 1
-    const tablaInteraccion1 = document.getElementById('resultado-interaccion-1');
+    const tablaInteraccion1 = document.getElementById('resultado-interaccion-1-long');
     const filaInteraccion1 = tablaInteraccion1.insertRow();
     const celda1Interaccion1 = filaInteraccion1.insertCell();
     const celda2Interaccion1 = filaInteraccion1.insertCell();
@@ -148,7 +147,7 @@ function calcular() {
 
   
     // Agregamos una fila a la tabla con los resultados de la Interacción 2
-    const tablaInteraccion2 = document.getElementById('resultado-interaccion-1');
+    const tablaInteraccion2 = document.getElementById('resultado-interaccion-1-long');
     const filaInteraccion2 = tablaInteraccion2.insertRow();
     const celda1Interaccion2 = filaInteraccion2.insertCell();
     const celda2Interaccion2 = filaInteraccion2.insertCell();
@@ -164,7 +163,7 @@ function calcular() {
 
   
     // Agregamos una fila a la tabla con los resultados de la Interacción 3
-    const tablaInteraccion3 = document.getElementById('resultado-interaccion-1');
+    const tablaInteraccion3 = document.getElementById('resultado-interaccion-1-long');
     const filaInteraccion3 = tablaInteraccion3.insertRow();
     const celda1Interaccion3 = filaInteraccion3.insertCell();
     const celda2Interaccion3 = filaInteraccion3.insertCell();
@@ -180,7 +179,7 @@ function calcular() {
 
   
     // Agregamos una fila a la tabla con los resultados de la Interacción 4
-    const tablaInteraccion4 = document.getElementById('resultado-interaccion-1');
+    const tablaInteraccion4 = document.getElementById('resultado-interaccion-1-long');
     const filaInteraccion4 = tablaInteraccion4.insertRow();
     const celda1Interaccion4 = filaInteraccion4.insertCell();
     const celda2Interaccion4 = filaInteraccion4.insertCell();
@@ -196,7 +195,7 @@ function calcular() {
   
   
     // Agregamos una fila a la tabla con los resultados de la Interacción 5
-    const tablaInteraccion5 = document.getElementById('resultado-interaccion-1');
+    const tablaInteraccion5 = document.getElementById('resultado-interaccion-1-long');
     const filaInteraccion5 = tablaInteraccion5.insertRow();
     const celda1Interaccion5 = filaInteraccion5.insertCell();
     const celda2Interaccion5 = filaInteraccion5.insertCell();
@@ -211,7 +210,7 @@ function calcular() {
     celda5Interaccion5.appendChild(document.createTextNode(`$${precioPromedio5.toLocaleString('es-ES', {minimumFractionDigits: 4, maximumFractionDigits: 4})}`));
 
       // Agregamos una fila a la tabla con los resultados de la Interacción 6
-      const tablaInteraccion6 = document.getElementById('resultado-interaccion-1');
+      const tablaInteraccion6 = document.getElementById('resultado-interaccion-1-long');
       const filaInteraccion6 = tablaInteraccion6.insertRow();
       const celda1Interaccion6 = filaInteraccion6.insertCell();
       const celda2Interaccion6 = filaInteraccion6.insertCell();
@@ -227,7 +226,7 @@ function calcular() {
   
       
         // Agregamos una fila a la tabla con los resultados de la Interacción 7
-    const tablaInteraccion7 = document.getElementById('resultado-interaccion-1');
+    const tablaInteraccion7 = document.getElementById('resultado-interaccion-1-long');
     const filaInteraccion7 = tablaInteraccion7.insertRow();
     const celda1Interaccion7 = filaInteraccion7.insertCell();
     const celda2Interaccion7 = filaInteraccion7.insertCell();
@@ -244,7 +243,7 @@ function calcular() {
   
   
     // Agregamos una fila a la tabla con los resultados del cálculo principal
-    const tablaResultado = document.getElementById('resultado-principal');
+    const tablaResultado = document.getElementById('resultado-principal-long');
     const filaResultado = tablaResultado.insertRow();
     const celda1Resultado = filaResultado.insertCell();
     celda1Resultado.appendChild(document.createTextNode(`USDT =$${resultado.toLocaleString('es-ES', {minimumFractionDigits: 4, maximumFractionDigits: 4})}`));
@@ -258,7 +257,7 @@ function calcular() {
   <p class="total-real-invertido">
   Total Real Invertido = $${totalRealInvertido.toLocaleString('es-ES', {minimumFractionDigits: 4, maximumFractionDigits: 4})} <br>
   Capital Total Invertido = $${capitalTotal.toLocaleString('es-ES', {minimumFractionDigits: 4, maximumFractionDigits: 4})} <br>
-  Riesgo Total = $${riesgoTotal.toLocaleString('es-ES', {minimumFractionDigits: 4, maximumFractionDigits: 4})} <br>
+  Riesgo Total = ${riesgoTotal.toLocaleString('es-ES', {minimumFractionDigits: 2, maximumFractionDigits: 2})}% <br>
   </p>  
   
               <thead>
@@ -288,16 +287,25 @@ function calcular() {
   `;
   
 // Obtener el div con id "resultado"
-const resultadoDiv = document.querySelector("#resultado");
+const resultadoDiv = document.querySelector("#resultado-long");
 
 // Agregar el elemento div al final del div con id "resultado"
 resultadoDiv.appendChild(StopLossDiv);
+
+// Agregamos los resultados del Rango
+
+const mostrarPorcentajeUnico =  porcentajeUnicoLong;
+document.getElementById("resultadoPorcentajeUnicoLong").innerHTML = mostrarPorcentajeUnico.toLocaleString('es-ES', {minimumFractionDigits: 4, maximumFractionDigits: 4});
+
+
+// Actualizar los valores en la tabla
+document.getElementById("precioPromedioRango").innerHTML = precioPromedioRango.toFixed(4);
+document.getElementById("baseDistanciaShort").innerHTML = precioSuperior.toFixed(4);
+document.getElementById("baseDistanciaLong").innerHTML = precioInferior.toFixed(4);
+document.getElementById("distanciaShort").innerHTML = distanciaShort.toFixed(4);
+document.getElementById("distanciaLong").innerHTML = distanciaLong.toFixed(4);
+document.getElementById("porcentajeShort").innerHTML = porcentajeShort.toFixed(4);
+document.getElementById("porcentajeLong").innerHTML = porcentajeLong.toFixed(4);
   
   }
   
-  const porcentajeInput = document.getElementById("porcentaje");
-  const porcentajeValor = document.getElementById("porcentaje-valor");
-  
-  porcentajeInput.addEventListener("input", () => {
-    porcentajeValor.innerText = porcentajeInput.value;
-  });

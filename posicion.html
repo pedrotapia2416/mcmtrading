@@ -7,6 +7,8 @@
   <title>MCM Trading</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+
   <script src="https://kit.fontawesome.com/e25f6e1d42.js" crossorigin="anonymous"></script>
   
 </head>
@@ -54,6 +56,66 @@
     </ul>
   </nav>
   
+<div class="container">
+
+   <div class="row calculadora">
+    <h4>Psición 2 a 1</h4>
+    <div class="col s12 m12">
+        <form>
+            <div class=" input-field col s12 m12">
+                <label  for="moneda">Nombre de la Moneda:</label>
+                <input type="text" id="moneda" name="moneda" style="color:white">
+            </div>         
+
+            <div class="col s12 m3">
+                <label for="long-stoploss">Stop Loss de LONG:</label>
+                <input type="number" id="long-stoploss" name="long-stoploss">
+            </div>
+            <div class="col s12 m3">
+              <label for="long-entrada">Entrada de LONG:</label>
+              <input type="number" id="long-entrada" name="long-entrada">
+          </div>
+
+            <div class="col s12 m3">
+                <label for="short-entrada">Entrada de SHORT:</label>
+                <input type="number" id="short-entrada" name="short-entrada">
+            </div>
+
+            <div class="col s12 m3">
+                <label for="short-stoploss">Stop Loss de SHORT:</label>
+                <input type="number" id="short-stoploss" name="short-stoploss">
+            </div>
+           
+            <button type="button" onclick="calcular()">Calcular</button>
+          </form>
+          <br><br>
+          
+    </div>
+
+    <div class="col s12 m12">
+
+        <table id="tabla">
+            <tr>
+              <th>Moneda</th>
+              <th>Diferencia entre puntos LONG</th>
+              <th>Diferencia entre puntos SHORT</th>
+              <th>Distancia entre puntos centrales</th>
+              <th>Posición Long</th>
+              <th>Posición Short</th>
+
+            </tr>
+           
+          </table>
+          <button onclick="exportarExcel()">Descargar Excel</button>
+
+    </div>
+    <br>
+    <p id="result" style="color:white"></p>
+    
+   </div>
+  
+
+</div>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 

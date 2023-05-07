@@ -1,18 +1,37 @@
-body {
+.container {
   background-color: #1d1d1d;
   color: #f2f2f2;
+  border-radius: 8px;
 }
 
+body {
+  background: linear-gradient(155deg, #0072c6, #C743C7);
+  background-attachment: fixed;
+  transition: background-color 0.5s ease;
+}
 nav {
   background-color: #424242 !important;
 }
 
 nav ul li a {
   color: #f2f2f2;
-  width: 150px;
+  width: 180px;
   text-align: center;
 }
+.fas{
+font-size: 15px;
+padding: 0px !important;
+margin: 0px !important;
+}
 
+
+
+.logo{
+  padding-left: 50px;
+  padding-right: 10px;
+  font-weight: 600;
+  border-right: 1px solid #5a5a5a;
+}
 nav ul li a:hover {
   background-color: #333333;
 }
@@ -29,13 +48,22 @@ nav ul li a:hover {
 .badgeLong{
   background-color:rgb(15, 166, 108);
   color: #f2f2f2 !important;
-  padding: 3px 8px 3px 8px;
+  padding: 2px 4px 2px 4px;
   font-weight: 600;
   border-radius: 50px;
   text-align: left !important;
-  font-size: 13px;
+  font-size: 10px;
 }
 
+.badgePro{
+  background-color:rgb(199, 67, 199);
+  color: #f2f2f2 !important;
+  padding: 2px 4px 2px 4px;
+  font-weight: 600;
+  border-radius: 50px;
+  text-align: left !important;
+  font-size: 10px;
+}
 
 input[type="number"],
 input[type="range"] {
@@ -159,7 +187,7 @@ tr{
   margin-top: 20px;
 }
 
-#resultado {
+.resultado {
   margin-top: 20px;
   padding: 10px;
   border-radius: 5px;
@@ -177,4 +205,18 @@ p{
 
 .sl {
   background-color: rgb(210, 150, 150);
+}
+
+
+
+
+.short .col .badge1{
+  background-color: rgb(255, 118, 118) !important;
+}
+.short .col .calculadora-datos button{
+  background-color: rgb(255, 118, 118) !important;
+}
+
+.short .margen table thead tr th{
+  background-color: rgb(255, 118, 118) !important;
 }

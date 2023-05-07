@@ -1,17 +1,6 @@
 
-    //Constante porcentaje único
-    const porcentajeUnico = 0.0477;
-    const mostrarPorcentajeUnico =  porcentajeUnico * 100;
-    document.getElementById("resultadoPorcentajeUnico").innerHTML = mostrarPorcentajeUnico.toLocaleString('es-ES', {minimumFractionDigits: 4, maximumFractionDigits: 4});
+    
 
-const numeroInput = document.getElementById('precio');
-numeroInput.addEventListener('blur', () => {
-  const numero = parseFloat(numeroInput.value);
-  if (!isNaN(numero)) {
-    numeroInput.value = numero.toFixed(4);
-  }
-  
-});
 
 const cantidadInput = document.getElementById('cantidad');
 cantidadInput.addEventListener('blur', () => {
@@ -30,7 +19,9 @@ capitalTotalInput.addEventListener('blur', () => {
 });
 
 
-function calcular() {
+function calcularShort() {
+
+
 
     const tabla1 = document.getElementById("resultado-principal");
   tabla1.innerHTML = "";
@@ -46,7 +37,6 @@ function calcular() {
 
     // Obtenemos los valores de los campos de entrada
     const capitalTotal = parseFloat(document.getElementById('capitalTotal').value);
-    const precio = parseFloat(document.getElementById('precio').value);
     const cantidad = parseFloat(document.getElementById('cantidad').value);
     const apalancamiento = parseFloat(document.getElementById('apalancamiento').value);
     const porcentaje = parseFloat(document.getElementById('porcentaje').value);
@@ -55,8 +45,31 @@ function calcular() {
     const precioSuperior = parseFloat(document.getElementById('precioSuperior').value);
     const precioInferior = parseFloat(document.getElementById('precioInferior').value);
 
+    const variacionShort = parseFloat(document.getElementById('variacionShort').value);
 
+    // Calculamos los valores del rango
+
+    const precioPromedioRango = ( precioSuperior + precioInferior )/2 ;
+  const precio = precioPromedioRango + (precioPromedioRango * variacionShort);
+  console.log(precio);
+
+    const baseDistanciaShort = (precioSuperior - precio) / precio;
+    const baseDistanciaLong = (precio - precioInferior) / precioInferior;
   
+    const distanciaShort = baseDistanciaShort ;
+    const distanciaLong = baseDistanciaLong ;
+  
+    const porcentajeShort = distanciaShort/7;
+    const porcentajeLong = distanciaLong/7;
+  
+    //Constante porcentaje único
+    const porcentajeUnico = porcentajeShort;
+    const porcentajeUnicoLong = porcentajeLong;
+
+   //CALCULOS GENERALES SHORT
+   console.log(porcentajeUnico);
+   //
+
     // Calculamos la cantidad de monedas con el porcentaje
     const cantidadConPorcentaje = cantidad + (porcentaje / 100) * cantidad;
   
@@ -131,17 +144,6 @@ function calcular() {
 
   const riesgoTotal = totalRealInvertido / capitalTotal;
 
-  // Calculamos los valores del rango
-
-  const precioPromedioRango = ( precioSuperior + precioInferior )/2 ;
-  const baseDistanciaShort = (precioSuperior - precio) / precio;
-  const baseDistanciaLong = (precio - precioInferior) / precioInferior;
-
-  const distanciaShort = baseDistanciaShort * 100;
-  const distanciaLong = baseDistanciaLong * 100;
-
-  const porcentajeShort = distanciaShort/7;
-  const porcentajeLong = distanciaLong/7;
 
   
   
@@ -270,7 +272,7 @@ function calcular() {
   StopLossDiv.innerHTML = `
   <table id="" class="striped">
   <p class="total-real-invertido">
-  Total Real Invertido = $${totalRealInvertido.toLocaleString('es-ES', {minimumFractionDigits: 4, maximumFractionDigits: 4})} <br>
+  Total Real Invertido = ${totalRealInvertido.toLocaleString('es-ES', {minimumFractionDigits: 4, maximumFractionDigits: 4})} <br>
   Capital Total Invertido = $${capitalTotal.toLocaleString('es-ES', {minimumFractionDigits: 4, maximumFractionDigits: 4})} <br>
   Riesgo Total = $${riesgoTotal.toLocaleString('es-ES', {minimumFractionDigits: 4, maximumFractionDigits: 4})} <br>
   </p>  
@@ -307,16 +309,7 @@ const resultadoDiv = document.querySelector("#resultado");
 // Agregar el elemento div al final del div con id "resultado"
 resultadoDiv.appendChild(StopLossDiv);
 
-// Agregamos los resultados del Rango
 
-// Actualizar los valores en la tabla
-document.getElementById("precioPromedioRango").innerHTML = precioPromedioRango.toFixed(4);
-document.getElementById("baseDistanciaShort").innerHTML = precioSuperior.toFixed(4);
-document.getElementById("baseDistanciaLong").innerHTML = precioInferior.toFixed(4);
-document.getElementById("distanciaShort").innerHTML = distanciaShort.toFixed(4);
-document.getElementById("distanciaLong").innerHTML = distanciaLong.toFixed(4);
-document.getElementById("porcentajeShort").innerHTML = porcentajeShort.toFixed(4);
-document.getElementById("porcentajeLong").innerHTML = porcentajeLong.toFixed(4);
   
   }
   
